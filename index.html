@@ -1,0 +1,456 @@
+<!--Google -Fonts-->
+<link href='https://fonts.googleapis.com/css?family=Sintony:400,700&subset=latin-ext' rel='stylesheet' type='text/css'>
+
+<!--Font-awsome-->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="estilos.css">
+<div class="container">
+
+
+	<header>
+
+		<div style="text-align:center;margin-top:25px;font-weight:bold;texxxt-decoration:none;">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+			<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+			<script type="text/javascript" src="util.js"></script>
+			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+			<script>
+				$(document).ready(function () {
+					// responsive menu toggle
+					$("#menutoggle").click(function () {
+						$('.xs-menu').toggleClass('displaynone');
+					});
+
+					// drop down menu for Equipos
+					$(".menu .drop-down.equipos").hover(function () {
+						// Add class for showing the Equipos content
+						$('.menu .mega-menu-equipos').addClass('display-on');
+					});
+
+					$(".menu .drop-down.equipos").mouseleave(function () {
+						// Remove class when leaving Equipos
+						$('.menu .mega-menu-equipos').removeClass('display-on');
+					});
+
+					// drop down menu for Partidos
+					$(".menu .drop-down.partidos").hover(function () {
+						// Add class for showing the Equipos content
+						$('.menu .mega-menu-partidos').addClass('display-on');
+					});
+
+					$(".menu .drop-down.partidos").mouseleave(function () {
+						// Remove class when leaving Equipos
+						$('.menu .mega-menu-partidos').removeClass('display-on');
+					});
+					// drop down menu for Clasificacion
+					$(".menu .drop-down.clasificacion").hover(function () {
+						// Add class for showing the Clasificacion content
+						$('.menu .mega-menu-clasificacion').addClass('display-on');
+					});
+
+					$(".menu .drop-down.clasificacion").mouseleave(function () {
+						// Remove class when leaving Clasificacion
+						$('.menu .mega-menu-clasificacion').removeClass('display-on');
+					});
+					// drop down menu for Equipos
+					$(".menu .drop-down.noticias").hover(function () {
+						// Add class for showing the Equipos content
+						$('.menu .mega-menu-noticias').addClass('display-on');
+					});
+
+					$(".menu .drop-down.noticias").mouseleave(function () {
+						// Remove class when leaving Equipos
+						$('.menu .mega-menu-noticias').removeClass('display-on');
+					});
+				});
+			</script>
+			<script>
+				$(document).ready(function () {
+					// Ocultar todas las jornadas excepto la primera al cargar la página
+					$('.carousel-item').not(':first').hide();
+
+					// Manejar el clic en el botón "Siguiente"
+					$('#jornadasCarousel .carousel-control-next').click(function () {
+						mostrarSiguienteJornada();
+					});
+
+					// Manejar el clic en el botón "Anterior"
+					$('#jornadasCarousel .carousel-control-prev').click(function () {
+						mostrarJornadaAnterior();
+					});
+
+					function mostrarSiguienteJornada() {
+						// Obtener la jornada actual visible en jornadasCarousel
+						var currentJornada = $('#jornadasCarousel .carousel-inner .carousel-item:visible');
+
+						// Ocultar la jornada actual
+						currentJornada.hide();
+
+						// Obtener la siguiente jornada en jornadasCarousel
+						var nextJornada = currentJornada.next('.carousel-item');
+
+						// Si no hay siguiente jornada, mostrar la primera en jornadasCarousel
+						if (nextJornada.length === 0) {
+							nextJornada = $('#jornadasCarousel .carousel-inner .carousel-item:first');
+						}
+
+						// Mostrar la siguiente jornada en jornadasCarousel
+						nextJornada.show();
+					}
+
+					function mostrarJornadaAnterior() {
+						// Obtener la jornada actual visible en jornadasCarousel
+						var currentJornada = $('#jornadasCarousel .carousel-inner .carousel-item:visible');
+
+						// Ocultar la jornada actual
+						currentJornada.hide();
+
+						// Obtener la jornada anterior en jornadasCarousel
+						var prevJornada = currentJornada.prev('.carousel-item');
+
+						// Si no hay jornada anterior, mostrar la última en jornadasCarousel
+						if (prevJornada.length === 0) {
+							prevJornada = $('#jornadasCarousel .carousel-inner .carousel-item:last');
+						}
+
+						// Mostrar la jornada anterior en jornadasCarousel
+						prevJornada.show();
+					}
+				});
+			</script>
+			<script>
+				function toggleNewsCard() {
+					$('#newsModal').modal('toggle');
+				}
+			</script>
+
+
+		</div>
+		<!-- Centrar título e imagen -->
+		<h2 style="text-align: center;">
+			BOWL and BEERS
+		</h2>
+
+	</header>
+
+	<nav class="menu">
+		<ul>
+			<li class="active">
+				<a href="#">Home</a>
+
+			</li>
+			<li class="drop-down equipos">
+				<a href="#">Equipos</a>
+				<div class="mega-menu mega-menu-equipos">
+					<div class="mm-6column">
+						<span class="left-images">
+							<img src="./img/Blood.jpg">
+						</span>
+
+					</div>
+
+					<div class="mm-3column">
+						<span class="categories-list">
+							<ul>
+								<span>Liga 2023 </span>
+								<li>(Nigromantes)<br>Entrenador: Albert Casado</li>
+								<li>Los Autistas de Hamelin (Skavens)<br>Entrenador: Arnau Casado</li>
+								<li>Kunyadoz (Orcos Negros)<br>Entrenador: David(Hachas)</li>
+								<li>(Orcos)<br>Entrenador: David Morales</li>
+								<li>(Skavens)<br>Entrenador: David Vargas</li>
+								<li>Escarabajos Enojados (Reyes Funerarios)<br>Entrenador: Gines Perez</li>
+								<li>Los Profetas (Orcos Negros)<br>Entrenador: Jaime</li>
+								<li>Titanes de Villaguijarro (Orcos)<br>Entrenador: Javier Moran</li>
+								<li>La Liga Jurasica (Hombres Lagarto)<br>Entrenador: Jordi Carretero</li>
+								<li>Los Altos Elfos de Mierda (Elfos)<br>Entrenador: Josep Maria</li>
+								<li>Los Satiros Concupiscentes (Hombres Bestia)<br>Entrenador: Oscar Lanzas</li>
+							</ul>
+						</span>
+					</div>
+
+				</div>
+
+			</li>
+			<li>
+			<li class="drop-down partidos">
+				<a href="#">Resultados</a>
+				<div class="mega-menu mega-menu-partidos">
+					<div class="mm-6column">
+						<span class="left-images">
+							<img src="./img/jugador.jpg">
+						</span>
+					</div>
+					<div id="jornadasCarousel" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<h3>Jornada 1</h3>
+								<table>
+									<tr>
+										<td>Albert Casado VS Kunyadoz</td>
+									</tr>
+									<tr>
+										<td>David Morales VS David Vargas</td>
+									</tr>
+									<tr>
+										<td>Albert Casado VS Kunyadoz</td>
+									</tr>
+									<tr>
+										<td>David Morales VS David Vargas</td>
+									</tr>
+									<tr>
+										<td>Albert Casado VS Kunyadoz</td>
+									</tr>
+									<tr>
+										<td>David Morales VS David Vargas</td>
+									</tr>
+								</table>
+							</div>
+							<!-- Add more carousel items for each jornada -->
+							<div class="carousel-item">
+								<h3>Jornada 2</h3>
+								<table>
+									<tr>
+										<td>Albert Casado VS Kunyadoz </td>
+									</tr>
+									<tr>
+										<td>Albert Casado VS Kunyadoz</td>
+									</tr>
+									<tr>
+										<td>Albert Casado VS Kunyadoz</td>
+									</tr>
+									<tr>
+										<td>Albert Casado VS Kunyadoz</td>
+									</tr>
+									<tr>
+										<td>Albert Casado VS Kunyadoz</td>
+									</tr>
+									<tr>
+										<td>Albert Casado VS Kunyadoz</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<a class="carousel-control-prev" href="#jornadasCarousel" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">
+								<- ANTERIOR</span>
+						</a>
+						<a class="carousel-control-next" href="#jornadasCarousel" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">SIGUIENTE -></span>
+						</a>
+					</div>
+				</div>
+			</li>
+			</li>
+
+			<li class="drop-down clasificacion">
+				<a href="#">Clasificacion</a>
+				<div class="mega-menu mega-menu-clasificacion">
+					<div class="mm-6column">
+						<span class="left-images">
+							<img src="./img/clasificacion.jpg" alt="">
+						</span>
+					</div>
+					<div class="mm-3column">
+						<span class="categories-list">
+							<ul>
+								<li>Liga 2023 Invierno-Primavera Bowl and Beers</li>
+							</ul>
+						</span>
+					</div>
+					<div class="mm-6column mega-menu mega-menu-clasificacion">
+						<table cellspacing="0" cellpadding="0" class="clasificacion-table">
+							<tr class="destacados">
+								<td>Equipo</td>
+								<td>PG</td>
+								<td>PP</td>
+								<td>PE</td>
+								<td>GF</td>
+								<td>GC</td>
+								<td>PS</td>
+							</tr>
+							<tr>
+								<td>Albert Casado</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Kunyadoz</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>David Morales</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>David Vargas</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Escarabajos Enojados</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Los Autistas de Hamelin</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Los Profetas</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Titanes de Villaguijarro</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Los Altos Elfos de Mierda</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Los Satiros Concupiscentes</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+							</tr>
+
+						</table>
+					</div>
+
+				</div>
+
+				<style>
+					.clasificacion-table {
+						width: 100%;
+						border-collapse: collapse;
+						margin-top: 15px;
+					}
+
+					.clasificacion-table th,
+					.clasificacion-table td {
+						border: 1px solid #ddd;
+						padding: 8px;
+						text-align: left;
+					}
+
+					.clasificacion-table th {
+						background-color: #f2f2f2;
+					}
+
+					.clasificacion-table img {
+						max-width: 32px;
+						max-height: 32px;
+						display: block;
+						margin: 0 auto;
+					}
+
+					.mm-6column {
+						display: flex;
+						flex-wrap: wrap;
+						justify-content: space-between;
+						align-items: center;
+					}
+
+					.mm-6column .mega-menu-clasificacion {
+						flex: 0 0 100%;
+						/* Occupy full width */
+						margin-top: 15px;
+					}
+				</style>
+			</li>
+			<li class="drop-down noticias">
+				<a href="#">Noticias</a>
+				<div class="mega-menu mega-menu-noticias">
+					<div class="mm-6column">
+						<span class="left-images">
+							<img src="./img/arbitrojoker01.jpg">
+						</span>
+					</div>
+					<div class="mm-3column">
+						<span class="categories-list">
+							<ul>
+								<li>Thranduil, el elfo imprudente, se encontro de repente ante las autoridades de la Liga BOWL and BEERS,
+									 enfrentandose a las consecuencias de su descontrolada celebracion.<BR>Frente a el, el comisionado orco, cuya mirada severa dejaba claro que la diversion no justificaba la falta de respeto.
+									El orco comisionado, cuyo nombre era Grunk el Intolerante, golpeo su enorme martillo contra el suelo, anunciando el inicio del juicio. La sala resono con el eco metalico mientras Thranduil, visiblemente nervioso, esperaba su destino.									
+									<BR>-Thranduil, elfo irresponsable <BR>-rugio Grunk-. <BR>Has violado las reglas sagradas de nuestra liga. La diversion no justifica la falta de respeto hacia las tradiciones.									
+									La defensa de Thranduil fue breve y poco convincente, pues reconocia su error y pedia clemencia. Sin embargo, Grunk, comprometido con la integridad del torneo, no mostro piedad.									
+									<BR>-Por desafiar las normas, desvirtuar la esencia deportiva y traer la vergunza a nuestra Liga BOWL and BEERS, te expulso con efecto inmediato <BR>-declaro Grunk con voz autoritaria.<BR>									
+									El elfo, con la cabeza gacha, abandono la sala de juicio mientras los murmullos de advertencia se propagaban entre los competidores. La noticia de la expulsion de Thranduil corrio como la polvora por todo el torneo, sirviendo como recordatorio de que incluso en la celebracion mas efusiva, la compostura y el respeto eran inquebrantables.									
+									Con la expulsion de Thranduil, la Liga BOWL and BEERS reafirmo su compromiso con las reglas ferreas y la esencia deportiva, asegurando que cada raza que participara en el torneo comprendiera la importancia de mantener la compostura, incluso cuando la competencia se regaba con cerveza y la emocion estaba en su punto maximo.</li>
+							</ul>
+						</span>
+					</div>
+					<div id="noticiasCarousel" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<h3>Titulo de la Noticia 1</h3>
+								
+								<p>Contenido de la noticia 1.</p>
+							</div>
+			
+							<div class="carousel-item">
+								<h3>Titulo de la Noticia 2</h3>
+								<!-- Añadir tu frase o contenido aquí -->
+								<p>Contenido de la noticia 2.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</nav>
+
+	<div style="display: inline-block;">
+		<img src="./img/portada.jpg" alt="Descripción de la imagen" style="display: block; margin: 0 auto;">
+	</div>
+
+</div>
