@@ -24,6 +24,17 @@
 					});
 
 					// drop down menu for Equipos
+					$(".menu .drop-down.rules").hover(function () {
+						// Add class for showing the Equipos content
+						$('.menu .mega-menu-rules').addClass('display-on');
+					});
+
+					$(".menu .drop-down.rules").mouseleave(function () {
+						// Remove class when leaving Equipos
+						$('.menu .mega-menu-rules').removeClass('display-on');
+					});
+
+					// drop down menu for Equipos
 					$(".menu .drop-down.equipos").hover(function () {
 						// Add class for showing the Equipos content
 						$('.menu .mega-menu-equipos').addClass('display-on');
@@ -139,6 +150,32 @@
 		<ul>
 			<li class="active">
 				<a href="#" style="text-transform: uppercase; font-size: 20px;">Home</a>
+
+			</li>
+			<li class="drop-down rules">
+				<a href="#" style="text-transform: uppercase; font-size: 20px;">Reglamento</a>
+				<div class="mega-menu mega-menu-rules">
+					<div class="mm-6column">
+						<span class="left-images">
+							<img src="./img/rulesliga.jpg">
+						</span>
+
+					</div>
+
+					<div class="mm-3column">
+						<span class="categories-list">
+							<ul>
+								<span tyle="text-align: center; font-size: 40px;">REGLAS CASERAS Liga 2023 BOWL and BEERS</span>
+								<li tyle="text-align: center; font-size: 40px;">PUNTUACION DE LA LIGA</li>
+								<li tyle="text-align: center; font-size: 40px;">Victoria 3pts</li>
+								<li tyle="text-align: center; font-size: 40px;">Empate 1pts</li>
+								<li tyle="text-align: center; font-size: 40px;">Derrota 0pts</li>
+
+							</ul>
+						</span>
+					</div>
+
+				</div>
 
 			</li>
 			<li class="drop-down equipos">
