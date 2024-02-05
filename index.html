@@ -136,7 +136,30 @@
 					$('#newsModal').modal('toggle');
 				}
 			</script>
-
+			<script>
+				// Realiza una solicitud HTTP para obtener el archivo JSON
+				fetch('./json/equipos.json')
+					.then(response => response.json()) // Convierte la respuesta a un objeto JavaScript
+					.then(equipoData => {
+						// Llama a la función y coloca la tabla dentro del div con id "tablaContainer"
+						document.getElementById("tablaContainer").innerHTML = generarTablaHTML(equipoData);
+					})
+					.catch(error => console.error('Error al leer el archivo JSON:', error));
+			
+				// Función para generar la tabla HTML desde datos JSON
+				function generarTablaHTML(equipoData) {
+					let tablaHTML = '<table cellspacing="0" cellpadding="0" class="clasificacion-table">';
+					tablaHTML += '<tr><th>Equipo</th><th>PG</th><th>PP</th></tr>'; // Agrega más columnas según la estructura de tus datos
+			
+					equipoData.forEach(equipo => {
+						tablaHTML += `<tr><td>${equipo.Equipo}</td><td>${equipo.PG}</td><td>${equipo.PP}</td></tr>`;
+						// Agrega más columnas según la estructura de tus datos
+					});
+			
+					tablaHTML += '</table>';
+					return tablaHTML;
+				}
+			</script>
 
 		</div>
 		<!-- Centrar título e imagen -->
@@ -305,11 +328,10 @@
 										<td style="font-size: 16px;">Filius Nox VS La Liga Jurasica</td>
 									</tr>
 									<tr>
-										<td style="font-size: 16px;">Titanes de Villaguijarro VS Escarabajos Enojados
-										</td>
+										<td style="font-size: 16px;">Titanes de Villaguijarro VS Escarabajos Enojados - RESULTADO: 0-2</td>
 									</tr>
 									<tr>
-										<td style="font-size: 16px;">Los Satiros Concupiscentes VS Putos Roedores</td>
+										<td style="font-size: 16px;">Los Satiros Concupiscentes VS Putos Roedores - RESULTADO: 1-1</td>
 									</tr>
 									<tr>
 										<td style="font-size: 16px;">Gigantes Verdes VS Los Profetas</td>
@@ -543,8 +565,7 @@
 										<td style="font-size: 16px;">Kunyadoz VS Los Profetas</td>
 									</tr>
 									<tr>
-										<td style="font-size: 16px;">Titanes de Villaguijarro VS Los Satiros
-											Concupiscentes</td>
+										<td style="font-size: 16px;">Titanes de Villaguijarro VS Los Satiros Concupiscentes</td>
 									</tr>
 									<tr>
 										<td style="font-size: 16px;">Putos Roedores VS Sol Sangrante</td>
@@ -618,17 +639,46 @@
 							</ul>
 						</span>
 					</div>
+					<div class="mm-6column mega-menu mega-menu-clasificacion" id="tablaContainer">
+						<!-- La tabla generada por JavaScript se colocará aquí -->
+					</div>
 					<div class="mm-6column mega-menu mega-menu-clasificacion">
 						<table cellspacing="0" cellpadding="0" class="clasificacion-table">
 							<tr class="destacados">
 								<td>Equipo</td>
+								<td>Ptos</td>
 								<td>PG</td>
 								<td>PP</td>
 								<td>PE</td>
 								<td>TF</td>
-								<td>TC</td>
-								<td>EF</td>
-								<td>EC</td>
+								<td>TC</td>								
+							</tr>
+							<tr>
+								<td>Escarabajos Enojados</td>
+								<td>3</td>
+								<td>1</td>
+								<td>0</td>
+								<td>0</td>
+								<td>2</td>
+								<td>0</td>
+							</tr>
+							<tr>
+								<td>Putos Roedores</td>
+								<td>1</td>
+								<td>0</td>
+								<td>0</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>							
+							</tr>
+							<tr>
+								<td>Los Satiros Concupiscentes</td>
+								<td>1</td>
+								<td>0</td>
+								<td>0</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
 							</tr>
 							<tr>
 								<td>Filius Nox</td>
@@ -637,8 +687,7 @@
 								<td>0</td>
 								<td>0</td>
 								<td>0</td>
-								<td>0</td>
-								<td>0</td>
+								<td>0</td>								
 							</tr>
 							<tr>
 								<td>Kunyadoz</td>
@@ -648,7 +697,7 @@
 								<td>0</td>
 								<td>0</td>
 								<td>0</td>
-								<td>0</td>
+								
 							</tr>
 							<tr>
 								<td>Sol Sangrante</td>
@@ -657,29 +706,8 @@
 								<td>0</td>
 								<td>0</td>
 								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-							</tr>
-							<tr>
-								<td>Putos Roedores</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-							</tr>
-							<tr>
-								<td>Escarabajos Enojados</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-							</tr>
+								<td>0</td>								
+							</tr>							
 							<tr>
 								<td>Los Autistas de Hamelin</td>
 								<td>0</td>
@@ -688,7 +716,7 @@
 								<td>0</td>
 								<td>0</td>
 								<td>0</td>
-								<td>0</td>
+								
 							</tr>
 							<tr>
 								<td>Los Profetas</td>
@@ -698,17 +726,17 @@
 								<td>0</td>
 								<td>0</td>
 								<td>0</td>
-								<td>0</td>
+								
 							</tr>
 							<tr>
 								<td>Titanes de Villaguijarro</td>
 								<td>0</td>
 								<td>0</td>
+								<td>1</td>
 								<td>0</td>
 								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
+								<td>2</td>								
+								
 							</tr>
 							<tr>
 								<td>Notthingan Felfas</td>
@@ -717,20 +745,8 @@
 								<td>0</td>
 								<td>0</td>
 								<td>0</td>
-								<td>0</td>
-								<td>0</td>
+								<td>0</td>								
 							</tr>
-							<tr>
-								<td>Los Satiros Concupiscentes</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-								<td>0</td>
-							</tr>
-
 						</table>
 					</div>
 
@@ -808,13 +824,14 @@
 				<div class="mega-menu mega-menu-noticias">
 					<div class="mm-6column">
 						<span class="left-images">
-							<img src="./img/arbitrojoker01.jpg">
+							<!--<img src="./img/arbitrojoker01.jpg">-->
+							<img src="./img/rana.jpg">
 						</span>
 					</div>
 					<div class="mm-3column">
 						<span class="categories-list">
 							<ul>
-								<li>Expulsion?<BR><BR>
+								<!--<li>Expulsion?<BR><BR>
 									Thranduil, el elfo imprudente, se encontro de repente ante las autoridades de la
 									Liga BOWL and BEERS,enfrentandose a las consecuencias de su descontrolada
 									accion.<BR>
@@ -848,25 +865,19 @@
 									palabras de Legolas. La audiencia observaba con atencion.
 									Despues de un momento de tension, Grunk el Intolerante dejo escapar un abrupto y,
 									finalmente, cedio a su reincorporacion.
-								</li>
+								</li>-->
+								<li>Declaraciones del Entrenador de los Putos Roedores<BR><BR>
+								Debo decir que mi contrincante era tan feo que incluso la pelota parecia rechazarlo.<BR> No se como alguien asi puede llamarse a si mismo entrenador de este deporte, pero supongo que la fealdad no esta penalizada en el reglamento.
+
+									El empate, en serio? Fue mas como si ambos equipos estuvieran compitiendo por ver quien podia ser mas patetico.<BR> Pero claro, la mala suerte tambien tuvo que unirse a la fiesta. Quien podria haber predicho que la fortuna me daria la espalda justo cuando enfrentaba a un contrincante tan feo y mediocre?
+									
+									En fin, este partido fue una perdida de tiempo. Ni siquiera se por que me moleste en venir aqui y enfrentarme a semejante desastre. <BR> Pero bueno, supongo que asi es Blood Bowl, un juego lleno de imprevistos y sorpresas, aunque algunas de ellas sean tan desagradables como la apariencia de mi contrincante.
+									
+									En cuanto al futuro, sinceramente, no me importa mucho. <BR> Este juego esta lleno de absurdos, y lo unico que espero es no tener que enfrentarme a otro contrincante tan feo y patetico como el de hoy. Fin de la conferencia!</li>
 							</ul>
 						</span>
 					</div>
-					<div id="noticiasCarousel" class="carousel slide" data-ride="carousel">
-						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<h3>Titulo de la Noticia 1</h3>
-
-								<p>Contenido de la noticia 1.</p>
-							</div>
-
-							<div class="carousel-item">
-								<h3>Titulo de la Noticia 2</h3>
-								<!-- Añadir tu frase o contenido aquí -->
-								<p>Contenido de la noticia 2.</p>
-							</div>
-						</div>
-					</div>
+					
 				</div>
 			</li>
 		</ul>
